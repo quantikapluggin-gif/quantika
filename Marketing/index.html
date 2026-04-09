@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantika - Presupuestos BIM para Revit</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', -apple-system, sans-serif; color: #333; line-height: 1.6; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #1a3a5c 0%, #2B579A 50%, #3a6db5 100%); color: white; padding: 80px 20px; text-align: center; }
+        .hero h1 { font-size: 3em; letter-spacing: 8px; margin-bottom: 8px; }
+        .hero .subtitle { font-size: 1.3em; color: #B0C4DE; margin-bottom: 30px; }
+        .hero .tagline { font-size: 1.1em; max-width: 700px; margin: 0 auto 40px; line-height: 1.8; color: #ddd; }
+        .hero .cta { display: inline-block; background: #2D7D2D; color: white; padding: 16px 40px; font-size: 1.1em; border-radius: 6px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
+        .hero .cta:hover { background: #238a23; }
+
+        /* Section */
+        .section { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        .section h2 { font-size: 2em; color: #2B579A; margin-bottom: 30px; text-align: center; }
+        .section h3 { font-size: 1.3em; color: #333; margin: 20px 0 8px; }
+
+        /* Features */
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-top: 30px; }
+        .feature { background: #f8f9fa; border-radius: 8px; padding: 24px; border-left: 4px solid #2B579A; }
+        .feature h3 { color: #2B579A; margin: 0 0 8px; font-size: 1.1em; }
+        .feature p { color: #666; font-size: 0.95em; }
+
+        /* Table */
+        .func-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .func-table th { background: #2B579A; color: white; padding: 12px 16px; text-align: left; }
+        .func-table td { padding: 10px 16px; border-bottom: 1px solid #eee; }
+        .func-table tr:nth-child(even) { background: #f8f9fa; }
+
+        /* Pricing */
+        .pricing { background: #f0f4f8; padding: 60px 20px; }
+        .pricing-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 700px; margin: 30px auto 0; }
+        .price-card { background: white; border-radius: 12px; padding: 32px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.08); border: 2px solid transparent; }
+        .price-card.featured { border-color: #2B579A; }
+        .price-card h3 { font-size: 1.3em; color: #2B579A; margin-bottom: 8px; }
+        .price-card .price { font-size: 2.5em; font-weight: bold; color: #333; margin: 16px 0 4px; }
+        .price-card .price-sub { color: #888; font-size: 0.9em; margin-bottom: 20px; }
+        .price-card ul { list-style: none; text-align: left; margin-bottom: 24px; }
+        .price-card ul li { padding: 6px 0; color: #555; font-size: 0.95em; }
+        .price-card ul li::before { content: "✓ "; color: #2D7D2D; font-weight: bold; }
+        .price-card .btn { display: inline-block; background: #2B579A; color: white; padding: 12px 32px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
+        .price-card .btn:hover { background: #1e3f6f; }
+
+        /* How to buy */
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px; }
+        .step { text-align: center; padding: 20px; }
+        .step .num { display: inline-block; width: 40px; height: 40px; line-height: 40px; background: #2B579A; color: white; border-radius: 50%; font-weight: bold; font-size: 1.2em; margin-bottom: 12px; }
+        .step p { color: #666; font-size: 0.95em; }
+
+        /* Who */
+        .who-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 20px; }
+        .who-item { background: #f8f9fa; padding: 16px 20px; border-radius: 8px; font-size: 0.95em; }
+
+        /* FAQ */
+        .faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 16px; }
+        .faq-item strong { color: #2B579A; }
+        .faq-item p { color: #666; margin-top: 4px; }
+
+        /* Contact */
+        .contact { background: #2B579A; color: white; padding: 60px 20px; text-align: center; }
+        .contact h2 { color: white; }
+        .contact p { color: #B0C4DE; font-size: 1.1em; margin: 8px 0; }
+        .contact a { color: white; text-decoration: underline; }
+
+        /* Footer */
+        .footer { background: #1a2a3a; color: #888; text-align: center; padding: 20px; font-size: 0.85em; }
+
+        /* Requirements */
+        .req-list { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+        .req-item { background: #f8f9fa; padding: 12px 24px; border-radius: 6px; font-size: 0.9em; color: #555; }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+    <img src="quantika256.png" alt="Quantika" style="width:80px; height:80px; margin-bottom:12px; border-radius:16px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+    <h1>QUANTIKA</h1>
+    <p class="subtitle">Presupuestos BIM para Autodesk Revit 2026</p>
+    <p class="tagline">El primer plugin de presupuestos que se sincroniza directamente con tu modelo BIM. Vincula cantidades, sincroniza cambios y exporta a Excel con formulas reales.</p>
+    <a href="#contacto" class="cta">Solicitar licencia</a>
+</div>
+
+<!-- Features principales -->
+<div class="section">
+    <h2>Que hace Quantika?</h2>
+    <div class="features">
+        <div class="feature">
+            <h3>Vinculacion directa con Revit</h3>
+            <p>Arrastra una celda de cualquier tabla de planificacion a una partida. La cantidad se vincula automaticamente.</p>
+        </div>
+        <div class="feature">
+            <h3>Sincronizacion inteligente</h3>
+            <p>Modifica el modelo y sincroniza con un clic. 7 estrategias de busqueda para encontrar siempre la fila correcta.</p>
+        </div>
+        <div class="feature">
+            <h3>Excel con formulas reales</h3>
+            <p>Exporta con formulas encadenadas. Si cambias un precio en Excel, todo se recalcula automaticamente.</p>
+        </div>
+        <div class="feature">
+            <h3>APU completo</h3>
+            <p>Materiales, Mano de Obra, Equipos, Subcontratos. Recursos calculados: Leyes Sociales, Fletes, Herramientas.</p>
+        </div>
+        <div class="feature">
+            <h3>Propagacion global de precios</h3>
+            <p>Cambia el precio de un recurso y se actualiza en todo el presupuesto automaticamente.</p>
+        </div>
+        <div class="feature">
+            <h3>PDF profesional</h3>
+            <p>Exporta a PDF con 4 niveles de detalle: completo, partidas, subcapitulos o solo capitulos.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Tabla de funcionalidades -->
+<div class="section">
+    <h2>Funcionalidades completas</h2>
+    <table class="func-table">
+        <tr><th>Funcion</th><th>Descripcion</th></tr>
+        <tr><td>Vinculacion BIM</td><td>Arrastra celdas de tablas de Revit a partidas</td></tr>
+        <tr><td>Sincronizacion</td><td>Actualiza cantidades cuando cambia el modelo</td></tr>
+        <tr><td>APU completo</td><td>Recursos con cantidad, precio unitario, total</td></tr>
+        <tr><td>Recursos calculados</td><td>Ley Social (% M.O.), Herramientas (% Mat.)</td></tr>
+        <tr><td>Excel con formulas</td><td>Exporta con =Cant*PU encadenado hasta el total</td></tr>
+        <tr><td>PDF profesional</td><td>4 niveles de exportacion con QuestPDF</td></tr>
+        <tr><td>Base de datos recursos</td><td>Vista global de todos los recursos del presupuesto</td></tr>
+        <tr><td>Undo/Redo ilimitado</td><td>Deshace cualquier cambio con Ctrl+Z</td></tr>
+        <tr><td>Backup automatico</td><td>3 versiones rotativas + autoguardado cada 2 min</td></tr>
+        <tr><td>Diagnostico de vinculos</td><td>Verifica estado de cada vinculacion con Revit</td></tr>
+        <tr><td>Cuentas contables</td><td>Asigna cuentas a cada recurso</td></tr>
+        <tr><td>Plantillas Excel</td><td>Importa y exporta plantillas .xls/.xlsx con estructura estandar</td></tr>
+        <tr><td>Tema claro/oscuro</td><td>Personaliza la interfaz segun tu preferencia</td></tr>
+        <tr><td>110+ tests automatizados</td><td>Calidad garantizada con pruebas automaticas</td></tr>
+    </table>
+</div>
+
+<!-- Para quien -->
+<div class="section">
+    <h2>Para quien es Quantika?</h2>
+    <div class="who-list">
+        <div class="who-item"><strong>Constructoras</strong> que presupuestan con modelos BIM</div>
+        <div class="who-item"><strong>Oficinas de arquitectura</strong> que necesitan cubicaciones rapidas</div>
+        <div class="who-item"><strong>Presupuestistas</strong> que trabajan con Revit y Excel</div>
+        <div class="who-item"><strong>ITO / Inspectores</strong> que verifican cantidades del modelo</div>
+    </div>
+</div>
+
+<!-- Pricing -->
+<div class="pricing" id="precios">
+    <div class="section" style="padding-top: 0;">
+        <h2>Precio</h2>
+        <div class="pricing-cards">
+            <div class="price-card">
+                <h3>Plan Mensual</h3>
+                <div class="price">2 UF<span style="font-size:0.4em; color:#888">/mes</span></div>
+                <div class="price-sub">+ IVA<br>~$76.000 CLP/mes</div>
+                <ul>
+                    <li>Todas las funcionalidades</li>
+                    <li>Actualizaciones incluidas</li>
+                    <li>Tutorial completo integrado</li>
+                    <li>Soporte via email</li>
+                    <li>Cancela cuando quieras</li>
+                </ul>
+                <a href="https://mpago.la/1r3bbi7" target="_blank" class="btn">Comprar</a>
+            </div>
+            <div class="price-card featured">
+                <h3>Plan Anual</h3>
+                <div style="background:#2D7D2D; color:white; display:inline-block; padding:4px 12px; border-radius:12px; font-size:0.75em; margin-bottom:8px;">Ahorra 17%</div>
+                <div class="price">20 UF<span style="font-size:0.4em; color:#888">/ano</span></div>
+                <div class="price-sub">+ IVA<br>~$760.000 CLP/ano<br><span style="color:#2D7D2D; font-weight:bold;">Equivale a $63.000/mes</span></div>
+                <ul>
+                    <li>Todas las funcionalidades</li>
+                    <li>Actualizaciones incluidas</li>
+                    <li>Soporte prioritario WhatsApp</li>
+                    <li>Tutorial completo integrado</li>
+                </ul>
+                <a href="https://mpago.la/2bkaBZf" target="_blank" class="btn">Comprar</a>
+            </div>
+        </div>
+        <p style="text-align:center; color:#888; font-size:0.85em; margin-top:20px;">Licencia por usuario. Precios en UF + IVA. La competencia cobra desde $2,400 USD/ano.</p>
+    </div>
+</div>
+
+<!-- Como adquirir -->
+<div class="section">
+    <h2>Como adquirir Quantika?</h2>
+    <div class="steps">
+        <div class="step">
+            <div class="num">1</div>
+            <p><strong>Contactanos</strong><br>Via email o WhatsApp</p>
+        </div>
+        <div class="step">
+            <div class="num">2</div>
+            <p><strong>Transferencia</strong><br>Te enviamos datos bancarios</p>
+        </div>
+        <div class="step">
+            <div class="num">3</div>
+            <p><strong>Recibe tu licencia</strong><br>Instalador + clave de activacion</p>
+        </div>
+        <div class="step">
+            <div class="num">4</div>
+            <p><strong>Instala y usa</strong><br>2 minutos y listo</p>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ -->
+<div class="section">
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-item">
+        <strong>Es compatible con otros programas de presupuesto?</strong>
+        <p>Si, importa y exporta archivos Excel (.xls/.xlsx) con estructura estandar de presupuestos (Codigo, Naturaleza, Ud, Resumen, Cantidad, Precio Unitario, Total).</p>
+    </div>
+    <div class="faq-item">
+        <strong>Cuantas partidas soporta?</strong>
+        <p>Sin limite. Optimizado con virtualizacion para presupuestos de 1000+ partidas.</p>
+    </div>
+    <div class="faq-item">
+        <strong>Necesito internet?</strong>
+        <p>No, funciona 100% offline. Solo necesita internet para buscar precios en Google.</p>
+    </div>
+    <div class="faq-item">
+        <strong>Que pasa si cambio de computador?</strong>
+        <p>Contactanos y te reactivamos la licencia en el nuevo equipo sin costo.</p>
+    </div>
+</div>
+
+<!-- Requisitos -->
+<div class="section">
+    <h2>Requisitos del sistema</h2>
+    <div class="req-list">
+        <div class="req-item">Autodesk Revit 2026</div>
+        <div class="req-item">Windows 10/11 (64 bits)</div>
+        <div class="req-item">.NET 8.0 Runtime</div>
+    </div>
+</div>
+
+<!-- Contacto -->
+<div class="contact" id="contacto">
+    <h2>Contacto</h2>
+    <p>Email: <a href="mailto:quantikapluggin@gmail.com">quantikapluggin@gmail.com</a></p>
+    <p style="margin-top: 20px; color: #7a9cc6; font-size: 0.9em;">Respuesta en menos de 24 horas</p>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    Quantika v1.0.0 | Presupuestos BIM para Revit | Desarrollado en Chile
+</div>
+
+</body>
+</html>
