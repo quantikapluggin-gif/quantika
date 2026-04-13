@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://quantikapluggin-gif.github.io/quantika/sitemap.xml
