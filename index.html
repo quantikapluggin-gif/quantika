@@ -70,6 +70,12 @@
         .feature h3 { color: #1a3a5c; font-size: 1.1em; margin-bottom: 8px; font-weight: 600; }
         .feature p { color: #666; font-size: 0.92em; line-height: 1.7; }
 
+        /* ========== BADGE "PROXIMAMENTE" ========== */
+        .badge-soon { display: inline-block; background: #D83B01; color: white; font-size: 0.6em; font-weight: 700; letter-spacing: 0.5px; padding: 3px 10px; border-radius: 20px; vertical-align: middle; margin-left: 8px; text-transform: uppercase; }
+        .feature.soon { border-style: dashed; border-color: #e0b87a; background: #fffdf8; }
+        .feature.soon .icon { opacity: 0.65; }
+        .func-table td .badge-soon { font-size: 0.7em; margin-left: 6px; }
+
         /* ========== HOW IT WORKS (showcase) ========== */
         .showcase { display: flex; align-items: center; gap: 50px; margin-bottom: 80px; }
         .showcase.reverse { flex-direction: row-reverse; }
@@ -175,10 +181,10 @@
 <div class="hero">
     <img src="quantika512.png" alt="Quantika" class="hero-logo">
     <h1>QUANTIKA</h1>
-    <p class="subtitle">Presupuestos BIM para Autodesk Revit 2025 / 2026</p>
-    <p class="tagline">El primer plugin de presupuestos que vive dentro de Revit. Vincula cantidades directamente del modelo 3D, sincroniza cambios con un clic y exporta a Excel con formulas reales.</p>
+    <p class="subtitle">Presupuestos BIM para Autodesk Revit 2025 / 2026 &mdash; y tambien sin Revit</p>
+    <p class="tagline">El plugin de presupuestos que vive dentro de Revit: vincula cantidades del modelo 3D, sincroniza cambios con un clic y exporta a Excel con formulas reales. Ahora con <strong>app de escritorio</strong> para trabajar el presupuesto sin Revit. Y muy pronto, <strong>planificacion 5D</strong> (carta Gantt, curvas y simulacion 4D).</p>
     <div class="cta-group">
-        <a href="https://quantikapluggin-gif.github.io/quantika/Quantika_v1.0.5.zip" class="btn-primary">Descargar Trial Gratis</a>
+        <a href="https://quantikapluggin-gif.github.io/quantika/Quantika-Setup-v1.7.0.exe" class="btn-primary">Descargar Trial Gratis</a>
         <a href="#precios" class="btn-outline">Ver planes</a>
         <a href="#como-funciona" class="btn-outline">Como funciona</a>
     </div>
@@ -209,6 +215,16 @@
             <h3>APU completo</h3>
             <p>Materiales, Mano de Obra, Equipos, Subcontratos. Recursos calculados automaticos: Leyes Sociales, Fletes, Herramientas.</p>
         </div>
+        <div class="feature soon">
+            <div class="icon">&#x1F4C5;</div>
+            <h3>Planificacion 5D <span class="badge-soon">Proximamente</span></h3>
+            <p>Carta Gantt, ruta critica, curvas de avance (flujo de caja, fisica, HH) y simulacion 4D coloreada en el modelo. <strong>En desarrollo</strong> como modulo Premium: del presupuesto al cronograma sin salir de Quantika.</p>
+        </div>
+        <div class="feature">
+            <div class="icon">&#x1F5A5;</div>
+            <h3>App de escritorio (sin Revit)</h3>
+            <p>Edita el mismo presupuesto sin tener Revit instalado. Ideal para oficina tecnica, contadores y obra. Misma licencia, mismo archivo.</p>
+        </div>
         <div class="feature">
             <div class="icon">&#x1F310;</div>
             <h3>Propagacion global</h3>
@@ -216,8 +232,8 @@
         </div>
         <div class="feature">
             <div class="icon">&#x1F4C4;</div>
-            <h3>PDF profesional</h3>
-            <p>Exporta a PDF con 4 niveles de detalle. Desde resumen ejecutivo hasta desglose completo con APU.</p>
+            <h3>PDF y Excel profesional</h3>
+            <p>Exporta a Excel con formulas reales o a PDF con 4 niveles de detalle. Analisis de costo por m&sup2; con moneda alternativa (UF, USD).</p>
         </div>
     </div>
 </div>
@@ -316,6 +332,13 @@
         <tr><th>Funcion</th><th>Descripcion</th></tr>
         <tr><td><strong>Vinculacion BIM</strong></td><td>Arrastra celdas de tablas de Revit a partidas del presupuesto</td></tr>
         <tr><td><strong>Sincronizacion</strong></td><td>Actualiza cantidades automaticamente cuando cambia el modelo</td></tr>
+        <tr><td><strong>App de escritorio</strong></td><td>Edita el presupuesto sin Revit. Misma licencia, mismo archivo .xlsx</td></tr>
+        <tr><td><strong>Planificacion 5D</strong> <span class="badge-soon">Proximamente</span></td><td>HH, duracion, predecesoras, calendario y ruta critica automatica</td></tr>
+        <tr><td><strong>Carta Gantt</strong> <span class="badge-soon">Proximamente</span></td><td>Cronograma visual con baseline, zoom dia/semana/mes y pop-out</td></tr>
+        <tr><td><strong>Curvas de avance</strong> <span class="badge-soon">Proximamente</span></td><td>Flujo de caja, curva fisica y de HH (superpuestas o independientes)</td></tr>
+        <tr><td><strong>Simulacion 4D</strong> <span class="badge-soon">Proximamente</span></td><td>Coloreo del modelo Revit segun avance en el tiempo</td></tr>
+        <tr><td><strong>Multi-presupuesto</strong></td><td>Varios presupuestos abiertos a la vez, cada uno en su ventana</td></tr>
+        <tr><td><strong>Costo por m&sup2;</strong></td><td>Analisis $/m&sup2; con moneda alternativa configurable (UF, USD, etc.)</td></tr>
         <tr><td><strong>APU completo</strong></td><td>Recursos con tipo, cantidad, precio unitario y total por partida</td></tr>
         <tr><td><strong>Recursos calculados</strong></td><td>Ley Social (% M.O.), Herramientas, Fletes, Imprevistos (% Mat.)</td></tr>
         <tr><td><strong>Desglose por tipo</strong></td><td>Columnas toggle: Materiales, M.O., Equipos, Subcontratos, % Incidencia</td></tr>
@@ -330,6 +353,24 @@
         <tr><td><strong>Plantillas</strong></td><td>Importa y exporta plantillas Excel con estructura estandar</td></tr>
         <tr><td><strong>Columnas ajustables</strong></td><td>Redimensiona columnas del presupuesto arrastrando el encabezado</td></tr>
     </table>
+</div>
+
+<!-- STANDALONE / APP ESCRITORIO -->
+<div style="background:#1a3a5c; color:#fff; padding:64px 24px;">
+    <div style="max-width:900px; margin:0 auto; text-align:center;">
+        <div style="font-size:0.8em; letter-spacing:2px; color:#9db8d6; text-transform:uppercase; margin-bottom:12px;">Novedad</div>
+        <h2 style="color:#fff; margin-bottom:16px;">Tu equipo no necesita Revit para trabajar el presupuesto</h2>
+        <p style="font-size:1.1em; color:#d4e0ef; max-width:720px; margin:0 auto 28px;">
+            Quantika ahora incluye una <strong>aplicacion de escritorio</strong> que abre el mismo archivo de presupuesto sin tener Revit instalado.
+            El ingeniero vincula las cantidades al modelo en Revit; la oficina tecnica, el presupuestista o el jefe de obra editan precios y APU desde su PC.
+            <strong>Misma licencia, mismo archivo .xlsx, los vinculos al modelo se conservan.</strong>
+        </p>
+        <div style="display:flex; gap:32px; justify-content:center; flex-wrap:wrap; margin-top:8px;">
+            <div style="max-width:240px;"><div style="font-size:1.6em;">&#x1F517;</div><strong>En Revit</strong><p style="color:#b8c9de; font-size:0.95em;">Vincula cantidades, sincroniza y resalta elementos del modelo 3D.</p></div>
+            <div style="max-width:240px;"><div style="font-size:1.6em;">&#x1F5A5;</div><strong>Sin Revit</strong><p style="color:#b8c9de; font-size:0.95em;">Edita partidas, recursos, precios, planificacion y exporta. En cualquier PC.</p></div>
+            <div style="max-width:240px;"><div style="font-size:1.6em;">&#x1F501;</div><strong>Un solo archivo</strong><p style="color:#b8c9de; font-size:0.95em;">El .xlsx viaja entre ambos sin perder vinculos ni datos.</p></div>
+        </div>
+    </div>
 </div>
 
 <!-- PARA QUIEN -->
@@ -365,7 +406,7 @@
     <div class="pricing-cards" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); max-width: 900px;">
         <div class="price-card">
             <h3>Prueba Gratuita</h3>
-            <div class="price" style="font-size:2em;">Gratis<span>/3 dias</span></div>
+            <div class="price" style="font-size:2em;">Gratis<span>/14 dias</span></div>
             <div class="price-sub">Solo requiere email</div>
             <ul>
                 <li>3 capitulos, 2 subcapitulos</li>
@@ -374,12 +415,12 @@
                 <li>APU completo</li>
                 <li>Sincronizacion con modelo</li>
             </ul>
-            <a href="https://quantikapluggin-gif.github.io/quantika/Quantika_v1.0.5.zip" class="btn-buy" style="background:#D83B01;">Descargar Trial</a>
+            <a href="https://quantikapluggin-gif.github.io/quantika/Quantika-Setup-v1.7.0.exe" class="btn-buy" style="background:#D83B01;">Descargar Trial</a>
         </div>
         <div class="price-card">
             <h3>Plan Mensual</h3>
-            <div class="price">$76.000<span>/mes</span></div>
-            <div class="price-sub">Pesos chilenos</div>
+            <div class="price">US$15<span>/mes</span></div>
+            <div class="price-sub">Dolares estadounidenses</div>
             <ul>
                 <li>Todas las funcionalidades</li>
                 <li>Actualizaciones incluidas</li>
@@ -391,8 +432,8 @@
         </div>
         <div class="price-card featured">
             <h3>Plan Anual</h3>
-            <div class="price">$760.000<span>/anual</span></div>
-            <div class="price-sub">Pesos chilenos<br><span style="color:#2D7D2D; font-weight:600;">Equivale a $63.000/mes &mdash; Ahorra 17%</span></div>
+            <div class="price">US$150<span>/anual</span></div>
+            <div class="price-sub">Dolares estadounidenses<br><span style="color:#2D7D2D; font-weight:600;">Equivale a US$12,5/mes &mdash; Ahorra 17%</span></div>
             <ul>
                 <li>Todas las funcionalidades</li>
                 <li>Actualizaciones incluidas</li>
@@ -455,7 +496,7 @@
         </div>
         <div class="faq-item">
             <strong>&#x2753; Puedo probar antes de comprar?</strong>
-            <p>Si. Descarga la version trial gratuita. 3 dias completos, solo necesitas un email. Limitado a 3 capitulos, 2 subcapitulos y 5 partidas. Sin exportacion.</p>
+            <p>Si. Descarga la version trial gratuita. 14 dias completos, solo necesitas un email. Limitado a 3 capitulos, 2 subcapitulos y 5 partidas. Sin exportacion.</p>
         </div>
         <div class="faq-item">
             <strong>&#x2753; Funciona con Revit 2025 y 2026?</strong>
@@ -485,7 +526,7 @@
 
 <!-- FOOTER -->
 <div class="footer">
-    Quantika v1.0.5 &middot; Presupuestos BIM para Revit &middot; Desarrollado en Chile
+    Quantika v1.7.0 &middot; Presupuestos BIM para Revit &middot; Desarrollado en Chile
 </div>
 
 <!-- LIGHTBOX -->
