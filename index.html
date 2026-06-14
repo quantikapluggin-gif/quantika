@@ -545,5 +545,77 @@ function closeLightbox() {
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
 </script>
 
+<!-- ===== CHATBOT FAQ (reglas, gratis, sin backend ni API) ===== -->
+<style>
+  #qkbot-launcher { position: fixed; bottom: 22px; right: 22px; width: 60px; height: 60px; border-radius: 50%; background: #2B579A; color: #fff; border: none; cursor: pointer; box-shadow: 0 6px 20px rgba(0,0,0,.25); z-index: 9999; font-size: 26px; display: flex; align-items: center; justify-content: center; transition: transform .2s, background .2s; }
+  #qkbot-launcher:hover { background: #1a3a5c; transform: translateY(-2px); }
+  #qkbot-panel { position: fixed; bottom: 92px; right: 22px; width: 360px; max-width: calc(100vw - 32px); height: 520px; max-height: calc(100vh - 130px); background: #fff; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,.28); z-index: 9999; display: none; flex-direction: column; overflow: hidden; font-family: 'Inter','Segoe UI',sans-serif; }
+  #qkbot-panel.qkbot-open { display: flex; }
+  .qkbot-head { background: linear-gradient(135deg,#1a3a5c,#2B579A); color:#fff; padding: 14px 16px; display:flex; align-items:center; justify-content:space-between; }
+  .qkbot-head strong { font-size: 1em; letter-spacing:.5px; }
+  .qkbot-head small { color:#B0C4DE; font-size:.78em; display:block; margin-top:2px; }
+  .qkbot-close { background:none; border:none; color:#fff; font-size:22px; cursor:pointer; line-height:1; }
+  .qkbot-msgs { flex:1; overflow-y:auto; padding: 14px; background:#f5f7fa; }
+  .qkbot-msg { max-width: 86%; padding: 10px 13px; border-radius: 12px; margin-bottom: 10px; font-size:.9em; line-height:1.55; word-wrap:break-word; }
+  .qkbot-bot { background:#fff; color:#333; border:1px solid #e3e8ef; border-bottom-left-radius:4px; }
+  .qkbot-user { background:#2B579A; color:#fff; margin-left:auto; border-bottom-right-radius:4px; }
+  .qkbot-msg a { color:#2D7D2D; font-weight:600; }
+  .qkbot-user a { color:#cdeacd; }
+  .qkbot-chips { padding: 8px 12px; display:flex; flex-wrap:wrap; gap:6px; background:#f5f7fa; border-top:1px solid #e3e8ef; }
+  .qkbot-chip { background:#fff; border:1px solid #2B579A; color:#2B579A; border-radius:16px; padding:6px 11px; font-size:.8em; cursor:pointer; transition: all .15s; }
+  .qkbot-chip:hover { background:#2B579A; color:#fff; }
+  .qkbot-input { display:flex; border-top:1px solid #e3e8ef; }
+  .qkbot-input input { flex:1; border:none; padding:12px 14px; font-size:.9em; outline:none; font-family:inherit; }
+  .qkbot-input button { background:#2D7D2D; color:#fff; border:none; padding:0 16px; cursor:pointer; font-size:1.1em; }
+</style>
+<button id="qkbot-launcher" aria-label="Abrir chat de consultas" onclick="qkbotToggle()">&#128172;</button>
+<div id="qkbot-panel" role="dialog" aria-label="Asistente Quantika">
+  <div class="qkbot-head">
+    <div><strong>Asistente Quantika</strong><small>Respuestas al instante &middot; 24/7</small></div>
+    <button class="qkbot-close" aria-label="Cerrar chat" onclick="qkbotToggle()">&times;</button>
+  </div>
+  <div class="qkbot-msgs" id="qkbot-msgs"></div>
+  <div class="qkbot-chips" id="qkbot-chips"></div>
+  <form class="qkbot-input" onsubmit="qkbotSend(event)">
+    <input id="qkbot-text" type="text" placeholder="Escribi tu consulta..." autocomplete="off">
+    <button type="submit" aria-label="Enviar">&#10148;</button>
+  </form>
+</div>
+<script>
+(function(){
+  var MENSUAL='https://www.mercadopago.cl/checkout/v1/redirect?pref_id=439758512-4b083b2a-687e-4234-9da4-e332d03d72d6';
+  var ANUAL='https://www.mercadopago.cl/checkout/v1/redirect?pref_id=439758512-d4a794d7-d297-4f68-836f-8146043e0813';
+  var MAIL='mailto:quantikapluggin@gmail.com';
+  var DL='Quantika-Setup-v1.7.1.exe';
+  // Cada intent: palabras clave (sin tildes) + respuesta. Si cambian precios/datos, editá acá.
+  var INTENTS=[
+    {k:['precio','precios','costo','costos','cuesta','cuanto sale','cuanto vale','vale','plan','planes','tarifa','suscrip','mensual','anual'], a:'<b>Planes:</b><br>&bull; <b>Prueba gratis</b> &mdash; 14 dias, solo email.<br>&bull; <b>Mensual</b> &mdash; US$26/mes.<br>&bull; <b>Anual</b> &mdash; US$260/ano (&asymp; US$21,7/mes, ahorras 17%).<br><br>Comprar: <a href="'+MENSUAL+'" target="_blank">Mensual</a> &middot; <a href="'+ANUAL+'" target="_blank">Anual</a>'},
+    {k:['revit','version','versiones','2026','2025','2024','2023','2022','compatib'], a:'Quantika es compatible con <b>Revit 2025 y 2026</b>. El instalador detecta automaticamente cual tenes. (Windows 10/11 64-bit, requiere .NET 8.)'},
+    {k:['trial','prueba','gratis','gratuita','gratuito','probar','demo','evaluar','testear'], a:'Si! La <b>prueba es gratis por 14 dias</b>, solo con tu email (sin tarjeta). Limitada a 3 capitulos, 2 subcapitulos y 5 partidas, sin exportacion.<br><br><a href="'+DL+'">Descargar la prueba</a>'},
+    {k:['comprar','compra','pago','pagar','adquirir','mercadopago','tarjeta','transferencia','checkout'], a:'Podes comprar online con MercadoPago (tarjeta, etc.):<br>&bull; <a href="'+MENSUAL+'" target="_blank">Plan Mensual &mdash; US$26</a><br>&bull; <a href="'+ANUAL+'" target="_blank">Plan Anual &mdash; US$260</a><br><br>Apenas pagas, te llega la clave a tu correo para activar.'},
+    {k:['activar','activacion','licencia','clave','codigo','instalar','instalacion','como instalo'], a:'Para activar: abri Quantika en Revit &rarr; <b>Ayuda &rarr; Activar licencia</b> &rarr; ingresa el <b>mismo email de tu compra</b> y la clave que te llego por correo. Dudas: <a href="'+MAIL+'">quantikapluggin@gmail.com</a>.'},
+    {k:['excel','exportar','importar','xls','xlsx'], a:'Si, Quantika <b>importa y exporta Excel</b> (.xls/.xlsx) con formulas reales y estructura estandar de presupuestos.'},
+    {k:['offline','internet','conexion','sin internet','sin conexion'], a:'Funciona <b>100% offline</b>. Solo necesita internet si queres buscar precios en Google.'},
+    {k:['computador','computadora','equipo','formatear','reinstalar','cambio de pc','otra maquina','otro pc','nuevo pc','cambie de'], a:'Si cambias de computador, escribinos a <a href="'+MAIL+'">quantikapluggin@gmail.com</a> y te reactivamos la licencia en el equipo nuevo <b>sin costo</b>.'},
+    {k:['requisito','requisitos','sistema','windows','.net','net 8','que necesito'], a:'<b>Requisitos:</b> Autodesk Revit 2025/2026 &middot; Windows 10/11 (64 bits) &middot; .NET 8.0 Runtime.'},
+    {k:['5d','cronograma','gantt','planificacion','curva','4d','programacion'], a:'La <b>planificacion 5D</b> (carta Gantt, curvas y simulacion 4D) esta en camino. Lo demas (presupuesto, vinculacion BIM, APU, export Excel) ya esta disponible.'},
+    {k:['standalone','escritorio','sin revit','desktop'], a:'Si: ademas del plugin, Quantika tiene una <b>app de escritorio</b> para trabajar el presupuesto <b>sin Revit</b>, en cualquier PC. El mismo .xlsx viaja entre ambos sin perder datos.'},
+    {k:['partida','partidas','limite','capacidad','rendimiento','lento','grande'], a:'Sin limite de partidas. Esta optimizado (virtualizacion) para presupuestos de <b>1000+ partidas</b> sin lag.'},
+    {k:['soporte','ayuda','contacto','persona','humano','correo','mail','email','hablar','asesor','atencion','telefono','whatsapp'], a:'Te atendemos por correo: <a href="'+MAIL+'">quantikapluggin@gmail.com</a> (respuesta en menos de 24 h).'},
+    {k:['hola','buenas','buenos dias','buenas tardes','hey','holaa','que tal','saludos'], a:'Hola! Soy el asistente de Quantika. Puedo contarte sobre <b>precios</b>, <b>compatibilidad con Revit</b>, la <b>prueba gratis</b>, <b>como comprar</b> y mas. Que necesitas?'}
+  ];
+  var FALLBACK='No estoy seguro de eso. Escribinos a <a href="'+MAIL+'">quantikapluggin@gmail.com</a> y te respondemos en menos de 24 h.';
+  var CHIPS=[['Precios','precio'],['Mi Revit?','revit'],['Prueba gratis','prueba'],['Como comprar','comprar'],['Una persona','soporte']];
+  var ACC='áàäâãéèëêíìïîóòöôõúùüûñç', NOA='aaaaaeeeeiiiiooooouuuunc';
+  var norm=function(s){s=(s||'').toLowerCase();var r='';for(var i=0;i<s.length;i++){var p=ACC.indexOf(s[i]);r+=(p>=0?NOA[p]:s[i]);}return r;};
+  var msgs, started=false;
+  function add(html,who){var d=document.createElement('div');d.className='qkbot-msg '+(who==='user'?'qkbot-user':'qkbot-bot');d.innerHTML=html;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;}
+  function answer(text){var n=norm(text);for(var i=0;i<INTENTS.length;i++){for(var j=0;j<INTENTS[i].k.length;j++){if(n.indexOf(norm(INTENTS[i].k[j]))>=0)return INTENTS[i].a;}}return FALLBACK;}
+  function reply(text){setTimeout(function(){add(answer(text),'bot');},250);}
+  window.qkbotToggle=function(){var p=document.getElementById('qkbot-panel');p.classList.toggle('qkbot-open');if(p.classList.contains('qkbot-open')&&!started){started=true;msgs=document.getElementById('qkbot-msgs');add('Hola! Soy el asistente de Quantika. Toca una opcion o escribime tu consulta:','bot');var c=document.getElementById('qkbot-chips');CHIPS.forEach(function(ch){var b=document.createElement('button');b.className='qkbot-chip';b.type='button';b.textContent=ch[0];b.onclick=function(){add(ch[0],'user');reply(ch[1]);};c.appendChild(b);});}};
+  window.qkbotSend=function(e){e.preventDefault();var inp=document.getElementById('qkbot-text');var t=inp.value.trim();if(!t)return;add(t,'user');inp.value='';reply(t);};
+})();
+</script>
+
 </body>
 </html>
