@@ -1,0 +1,6 @@
+{
+  "version": "1.7.2",
+  "installerUrl": "https://quantikapluggin-gif.github.io/quantika/Quantika-Setup-v1.7.2.exe",
+  "notes": "Planificación 5D mejorada: encadenar capítulos en secuencia, enlace por arrastre (Fin→Comienzo y Comienzo→Comienzo), ver la duración en días u horas, e histograma de mano de obra. Ahora la app avisa sola cuando hay una versión nueva. Correcciones de estabilidad e idioma.",
+  "mandatory": false
+}

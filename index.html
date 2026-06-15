@@ -184,7 +184,7 @@
     <p class="subtitle">Presupuestos BIM para Autodesk Revit 2025 / 2026 &mdash; y tambien sin Revit</p>
     <p class="tagline">El plugin de presupuestos que vive dentro de Revit: vincula cantidades del modelo 3D, sincroniza cambios con un clic y exporta a Excel con formulas reales. Ahora con <strong>app de escritorio</strong> para trabajar el presupuesto sin Revit. Y muy pronto, <strong>planificacion 5D</strong> (carta Gantt, curvas y simulacion 4D).</p>
     <div class="cta-group">
-        <a href="Quantika-Setup-v1.7.1.exe" class="btn-primary">Descargar Trial Gratis</a>
+        <a href="Quantika-Setup-v1.7.1.exe" data-download class="btn-primary">Descargar Trial Gratis</a>
         <a href="#precios" class="btn-outline">Ver planes</a>
         <a href="#como-funciona" class="btn-outline">Como funciona</a>
     </div>
@@ -415,7 +415,7 @@
                 <li>APU completo</li>
                 <li>Sincronizacion con modelo</li>
             </ul>
-            <a href="Quantika-Setup-v1.7.1.exe" class="btn-buy" style="background:#D83B01;">Descargar Trial</a>
+            <a href="Quantika-Setup-v1.7.1.exe" data-download class="btn-buy" style="background:#D83B01;">Descargar Trial</a>
         </div>
         <div class="price-card">
             <h3>Plan Mensual</h3>
@@ -526,7 +526,7 @@
 
 <!-- FOOTER -->
 <div class="footer">
-    Quantika v1.7.1 &middot; Presupuestos BIM para Revit &middot; Desarrollado en Chile &middot; <a href="privacy.html" style="color:inherit; text-decoration:underline;">Privacidad</a>
+    Quantika v<span data-version>1.7.1</span> &middot; Presupuestos BIM para Revit &middot; Desarrollado en Chile &middot; <a href="privacy.html" style="color:inherit; text-decoration:underline;">Privacidad</a>
 </div>
 
 <!-- LIGHTBOX -->
@@ -586,7 +586,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
   var MENSUAL='https://www.mercadopago.cl/checkout/v1/redirect?pref_id=439758512-4b083b2a-687e-4234-9da4-e332d03d72d6';
   var ANUAL='https://www.mercadopago.cl/checkout/v1/redirect?pref_id=439758512-d4a794d7-d297-4f68-836f-8146043e0813';
   var MAIL='mailto:quantikapluggin@gmail.com';
-  var DL='Quantika-Setup-v1.7.1.exe';
+  var DL=(window.QUANTIKA_DL||'Quantika-Setup-v1.7.1.exe');
   // Cada intent: palabras clave (sin tildes) + respuesta. Si cambian precios/datos, editá acá.
   var INTENTS=[
     {k:['precio','precios','costo','costos','cuesta','cuanto sale','cuanto vale','vale','plan','planes','tarifa','suscrip','mensual','anual'], a:'<b>Planes:</b><br>&bull; <b>Prueba gratis</b> &mdash; 14 dias, solo email.<br>&bull; <b>Mensual</b> &mdash; US$26/mes.<br>&bull; <b>Anual</b> &mdash; US$260/ano (&asymp; US$21,7/mes, ahorras 17%).<br><br>Comprar: <a href="'+MENSUAL+'" target="_blank">Mensual</a> &middot; <a href="'+ANUAL+'" target="_blank">Anual</a>'},
@@ -614,6 +614,25 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
   function reply(text){setTimeout(function(){add(answer(text),'bot');},250);}
   window.qkbotToggle=function(){var p=document.getElementById('qkbot-panel');p.classList.toggle('qkbot-open');if(p.classList.contains('qkbot-open')&&!started){started=true;msgs=document.getElementById('qkbot-msgs');add('Hola! Soy el asistente de Quantika. Toca una opcion o escribime tu consulta:','bot');var c=document.getElementById('qkbot-chips');CHIPS.forEach(function(ch){var b=document.createElement('button');b.className='qkbot-chip';b.type='button';b.textContent=ch[0];b.onclick=function(){add(ch[0],'user');reply(ch[1]);};c.appendChild(b);});}};
   window.qkbotSend=function(e){e.preventDefault();var inp=document.getElementById('qkbot-text');var t=inp.value.trim();if(!t)return;add(t,'user');inp.value='';reply(t);};
+})();
+</script>
+
+<!-- Auto-versión: la web lee version.json (la MISMA fuente que el auto-updater de la app) y actualiza
+     el link de descarga (data-download) y el número de versión (data-version). Así, cada release solo
+     toca version.json + sube el .exe; este HTML no se edita más. Fallback: si falla, queda el v1.7.1. -->
+<script>
+(function(){
+  fetch('version.json?_=' + Date.now())
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(v){
+      if(!v || !v.version) return;
+      if(v.installerUrl){
+        window.QUANTIKA_DL = v.installerUrl;
+        document.querySelectorAll('[data-download]').forEach(function(a){ a.href = v.installerUrl; });
+      }
+      document.querySelectorAll('[data-version]').forEach(function(el){ el.textContent = v.version; });
+    })
+    .catch(function(){});
 })();
 </script>
 
