@@ -1,6 +1,6 @@
 {
-  "version": "1.7.2",
-  "installerUrl": "https://quantikapluggin-gif.github.io/quantika/Quantika-Setup-v1.7.2.exe",
-  "notes": "Planificación 5D mejorada: encadenar capítulos en secuencia, enlace por arrastre (Fin→Comienzo y Comienzo→Comienzo), ver la duración en días u horas, e histograma de mano de obra. Ahora la app avisa sola cuando hay una versión nueva. Correcciones de estabilidad e idioma.",
-  "mandatory": false
+    "version":  "1.7.3",
+    "installerUrl":  "https://quantikapluggin-gif.github.io/quantika/Quantika-Setup-v1.7.3.exe",
+    "notes":  "Vinculos por celda en las formulas: arrastra varias celdas y cada una queda como vinculo VIVO que se sincroniza con el modelo (se acabaron los numeros pegados). En el cuadro de formula podes expandir cada vinculo para ver y resaltar en 3D los elementos que lo componen. Validacion por vinculo: aceptar o mantener cada referencia. Factores adicionales en los totales. Recurso porcentual con base elegible. Edicion de recursos 100% inline. Guardado mas seguro a prueba de cortes. Soporte para Revit 2027. El instalador pregunta el idioma (Espanol/Ingles). Correcciones de estabilidad.",
+    "mandatory":  false
 }
