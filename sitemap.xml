@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- 01-09-2026: este sitio dejo de ser el sitio del producto (se mudo a quantikaviewer.com) y quedo
+     SOLO como canal de actualizacion: version.json y los instaladores. No hay ninguna pagina que
+     ofrecerle a Google; el sitemap queda vacio a proposito, no por olvido. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://quantikapluggin-gif.github.io/quantika/</loc>
-    <lastmod>2026-04-13</lastmod>
-    <priority>1.0</priority>
-  </url>
 </urlset>
