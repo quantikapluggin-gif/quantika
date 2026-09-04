@@ -1,6 +1,6 @@
 {
-    "version":  "1.7.3",
-    "installerUrl":  "https://quantikapluggin-gif.github.io/quantika/Quantika-Setup-v1.7.3.exe",
-    "notes":  "Vinculos por celda en las formulas: arrastra varias celdas y cada una queda como vinculo VIVO que se sincroniza con el modelo (se acabaron los numeros pegados). En el cuadro de formula podes expandir cada vinculo para ver y resaltar en 3D los elementos que lo componen. Validacion por vinculo: aceptar o mantener cada referencia. Factores adicionales en los totales. Recurso porcentual con base elegible. Edicion de recursos 100% inline. Guardado mas seguro a prueba de cortes. Soporte para Revit 2027. El instalador pregunta el idioma (Espanol/Ingles). Correcciones de estabilidad.",
-    "mandatory":  false
+    "version": "1.7.3",
+    "installerUrl": "https://quantikaviewer.com/descargar/Quantika-Setup-v1.7.3.exe",
+    "notes": "Mejoras en la vinculacion con el modelo: el resaltado 3D ahora distingue lo vinculado de mas y de menos entre tablas, e identifica las partidas por su UniqueId para una sincronizacion mas estable y precisa. Correcciones de robustez en la sincronizacion, el guardado y el resaltado. Varias mejoras internas de estabilidad y rendimiento.",
+    "mandatory": false
 }

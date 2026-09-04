@@ -1,5 +1,0 @@
-# 01-09-2026: el sitio del producto se mudo a https://quantikaviewer.com. Lo que queda vivo aca es el
-# CANAL DE ACTUALIZACION (version.json + los Quantika-Setup-*.exe), que esta compilado adentro de cada
-# DLL ya instalado y por eso no se puede apagar. Nada de esto es para buscadores.
-User-agent: *
-Disallow: /
