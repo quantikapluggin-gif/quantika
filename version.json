@@ -1,6 +1,13 @@
 {
-    "version": "1.7.3",
-    "installerUrl": "https://quantikaviewer.com/descargar/Quantika-Setup-v1.7.3.exe",
-    "notes": "Mejoras en la vinculacion con el modelo: el resaltado 3D ahora distingue lo vinculado de mas y de menos entre tablas, e identifica las partidas por su UniqueId para una sincronizacion mas estable y precisa. Correcciones de robustez en la sincronizacion, el guardado y el resaltado. Varias mejoras internas de estabilidad y rendimiento.",
-    "mandatory": false
+    "version": "1.8.0",
+    "installerUrl": "https://quantikaviewer.com/descargar/Quantika-Setup-v1.8.0.exe",
+    "notes": "Presupuesto interactivo para el mandante: un enlace que abre el presupuesto en el navegador, con el modelo 3D, sin instalar nada y revocable cuando quieras. Set de materiales con foto por material y encuadre. Modelos enlazados: cantidades desde varios .rvt a la vez. Portal de clientes en quantikaviewer.com con ingreso por contrasena y panel de enlaces y visitas. Cronograma, curvas de avance y flujo de caja del contrato. Correcciones en la vinculacion con el modelo: los criterios ya no se pegan a la columna equivocada, asi que las partidas capturan sus elementos y el resaltado 3D funciona.",
+    "mandatory": false,
+    "historial": [
+        {
+            "version": "1.8.0",
+            "fecha": "2026-09-04",
+            "notas": "Presupuesto interactivo para el mandante: un enlace que abre el presupuesto en el navegador, con el modelo 3D, sin instalar nada y revocable cuando quieras. Set de materiales con foto por material y encuadre. Modelos enlazados: cantidades desde varios .rvt a la vez. Portal de clientes en quantikaviewer.com con ingreso por contrasena y panel de enlaces y visitas. Cronograma, curvas de avance y flujo de caja del contrato. Correcciones en la vinculacion con el modelo: los criterios ya no se pegan a la columna equivocada, asi que las partidas capturan sus elementos y el resaltado 3D funciona."
+        }
+    ]
 }
