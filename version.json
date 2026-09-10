@@ -1,9 +1,14 @@
 {
-  "version": "1.10.0",
-  "installerUrl": "https://quantikaviewer.com/descargar/Quantika-Setup-v1.10.0.exe",
-  "notes": "Premium mensual con vencimiento independiente de la licencia Basica, validacion firmada y avisos de suscripcion. Conserva los codigos Premium permanentes ya entregados. Mejora la gestion de recursos y protege los estados de pago frente a eventos atrasados o repetidos.",
+  "version": "1.10.1",
+  "installerUrl": "https://quantikaviewer.com/descargar/Quantika-Setup-v1.10.1.exe",
+  "notes": "El vencimiento firmado es la fecha contractual exacta, sin el dia de mas que aparecia en horario de verano. El resaltado 3D y la exportacion interactiva muestran todos los elementos sumados a mano, y Corregir vinculos ya no los borra. El log de diagnostico no guarda el cuerpo de las respuestas del portal. En la web: el modulo Planificacion 5D se contrata desde la pagina, y los pagos se reconocen por plan con reintento automatico de las incidencias.",
   "mandatory": false,
   "historial": [
+    {
+      "version": "1.10.1",
+      "fecha": "2026-09-09",
+      "notas": "El vencimiento firmado es la fecha contractual exacta, sin el dia de mas que aparecia en horario de verano. El resaltado 3D y la exportacion interactiva muestran todos los elementos sumados a mano, y Corregir vinculos ya no los borra. El log de diagnostico no guarda el cuerpo de las respuestas del portal. En la web: el modulo Planificacion 5D se contrata desde la pagina, y los pagos se reconocen por plan con reintento automatico de las incidencias."
+    },
     {
       "version": "1.10.0",
       "fecha": "2026-09-08",
