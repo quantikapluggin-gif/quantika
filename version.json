@@ -1,9 +1,14 @@
 {
-  "version": "1.10.1",
-  "installerUrl": "https://quantikaviewer.com/descargar/Quantika-Setup-v1.10.1.exe",
-  "notes": "El vencimiento firmado es la fecha contractual exacta, sin el dia de mas que aparecia en horario de verano. El resaltado 3D y la exportacion interactiva muestran todos los elementos sumados a mano, y Corregir vinculos ya no los borra. El log de diagnostico no guarda el cuerpo de las respuestas del portal. En la web: el modulo Planificacion 5D se contrata desde la pagina, y los pagos se reconocen por plan con reintento automatico de las incidencias.",
+  "version": "1.10.2",
+  "installerUrl": "https://quantikaviewer.com/descargar/Quantika-Setup-v1.10.2.exe",
+  "notes": "La compra pide tu correo y la licencia llega a ese correo, aunque pagues con otra cuenta de Mercado Pago; el boton de compra del plugin ya lo lleva escrito, y las ventanas de licencia y de exportar abren Mis enlaces en la web. La copia de emergencia se ofrece una sola vez, en un solo cuadro. El estado Roto de una partida se recalcula al enlazar, desvincular y deshacer, y sale el punto rojo de la fila. El resaltado 3D vuelve a ser por partida. Modelos enlazados: quitar un modelo deja rastro y reenlazarlo reconecta. Arbol del presupuesto: agregar, mover y anidar capitulos y partidas sin perder nada. Cada archivo abre con su propio plan de cuentas, calendario y columnas 5D.",
   "mandatory": false,
   "historial": [
+    {
+      "version": "1.10.2",
+      "fecha": "2026-09-11",
+      "notas": "La compra pide tu correo y la licencia llega a ese correo, aunque pagues con otra cuenta de Mercado Pago; el boton de compra del plugin ya lo lleva escrito, y las ventanas de licencia y de exportar abren Mis enlaces en la web. La copia de emergencia se ofrece una sola vez, en un solo cuadro. El estado Roto de una partida se recalcula al enlazar, desvincular y deshacer, y sale el punto rojo de la fila. El resaltado 3D vuelve a ser por partida. Modelos enlazados: quitar un modelo deja rastro y reenlazarlo reconecta. Arbol del presupuesto: agregar, mover y anidar capitulos y partidas sin perder nada. Cada archivo abre con su propio plan de cuentas, calendario y columnas 5D."
+    },
     {
       "version": "1.10.1",
       "fecha": "2026-09-09",
