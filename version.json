@@ -1,33 +1,38 @@
 {
-  "version": "1.10.2",
-  "installerUrl": "https://quantikaviewer.com/descargar/Quantika-Setup-v1.10.2.exe",
-  "notes": "La compra pide tu correo y la licencia llega a ese correo, aunque pagues con otra cuenta de Mercado Pago; el boton de compra del plugin ya lo lleva escrito, y las ventanas de licencia y de exportar abren Mis enlaces en la web. La copia de emergencia se ofrece una sola vez, en un solo cuadro. El estado Roto de una partida se recalcula al enlazar, desvincular y deshacer, y sale el punto rojo de la fila. El resaltado 3D vuelve a ser por partida. Modelos enlazados: quitar un modelo deja rastro y reenlazarlo reconecta. Arbol del presupuesto: agregar, mover y anidar capitulos y partidas sin perder nada. Cada archivo abre con su propio plan de cuentas, calendario y columnas 5D.",
-  "mandatory": false,
-  "historial": [
-    {
-      "version": "1.10.2",
-      "fecha": "2026-09-11",
-      "notas": "La compra pide tu correo y la licencia llega a ese correo, aunque pagues con otra cuenta de Mercado Pago; el boton de compra del plugin ya lo lleva escrito, y las ventanas de licencia y de exportar abren Mis enlaces en la web. La copia de emergencia se ofrece una sola vez, en un solo cuadro. El estado Roto de una partida se recalcula al enlazar, desvincular y deshacer, y sale el punto rojo de la fila. El resaltado 3D vuelve a ser por partida. Modelos enlazados: quitar un modelo deja rastro y reenlazarlo reconecta. Arbol del presupuesto: agregar, mover y anidar capitulos y partidas sin perder nada. Cada archivo abre con su propio plan de cuentas, calendario y columnas 5D."
-    },
-    {
-      "version": "1.10.1",
-      "fecha": "2026-09-09",
-      "notas": "El vencimiento firmado es la fecha contractual exacta, sin el dia de mas que aparecia en horario de verano. El resaltado 3D y la exportacion interactiva muestran todos los elementos sumados a mano, y Corregir vinculos ya no los borra. El log de diagnostico no guarda el cuerpo de las respuestas del portal. En la web: el modulo Planificacion 5D se contrata desde la pagina, y los pagos se reconocen por plan con reintento automatico de las incidencias."
-    },
-    {
-      "version": "1.10.0",
-      "fecha": "2026-09-08",
-      "notas": "Premium mensual con vencimiento independiente de la licencia Basica, validacion firmada y avisos de suscripcion. Conserva los codigos Premium permanentes ya entregados. Mejora la gestion de recursos y protege los estados de pago frente a eventos atrasados o repetidos."
-    },
-    {
-      "version": "1.9.0",
-      "fecha": "2026-09-07",
-      "notas": "El configurador de materiales: tu mandante elige entre las alternativas que le dejaste y ve moverse el total del presupuesto en el mismo enlace, sin instalar nada, y queda registrado que eligio. El resaltado 3D reconoce Familia: Tipo, asi que las partidas vinculadas por esa celda vuelven a resaltar sus elementos. Los totales se repintan al editar una cantidad a mano y Ctrl+Z restaura lo que corresponde. Abrir un presupuesto ya no lo marca como modificado ni lo reescribe solo a los dos minutos. El agente de IA no puede inventar cantidades: toda cantidad dice de donde sale, por las dos puertas. Y los carteles de compra llevan a la pagina de planes."
-    },
-    {
-      "version": "1.8.0",
-      "fecha": "2026-09-04",
-      "notas": "Presupuesto interactivo para el mandante: un enlace que abre el presupuesto en el navegador, con el modelo 3D, sin instalar nada y revocable cuando quieras. Set de materiales con foto por material y encuadre. Modelos enlazados: cantidades desde varios .rvt a la vez. Portal de clientes en quantikaviewer.com con ingreso por contrasena y panel de enlaces y visitas. Cronograma, curvas de avance y flujo de caja del contrato. Correcciones en la vinculacion con el modelo: los criterios ya no se pegan a la columna equivocada, asi que las partidas capturan sus elementos y el resaltado 3D funciona."
-    }
-  ]
+    "version":  "1.10.3",
+    "installerUrl":  "https://quantikaviewer.com/descargar/Quantika-Setup-v1.10.3.exe",
+    "notes":  "Presupuesto más claro: barra de niveles simplificada, contador y opción Quitar filtros, y aviso de cambios sin guardar. Mejoras en edición, copiar y pegar, cuentas y fórmulas vinculadas. Las flechas y el doble clic validan las cantidades antes de cerrar capítulos o APU.",
+    "mandatory":  false,
+    "historial":  [
+                      {
+                          "version":  "1.10.3",
+                          "fecha":  "2026-09-20",
+                          "notas":  "Presupuesto más claro: barra de niveles simplificada, contador y opción Quitar filtros, y aviso de cambios sin guardar. Mejoras en edición, copiar y pegar, cuentas y fórmulas vinculadas. Las flechas y el doble clic validan las cantidades antes de cerrar capítulos o APU."
+                      },
+                      {
+                          "version":  "1.10.2",
+                          "fecha":  "2026-09-11",
+                          "notas":  "La compra pide tu correo y la licencia llega a ese correo, aunque pagues con otra cuenta de Mercado Pago; el boton de compra del plugin ya lo lleva escrito, y las ventanas de licencia y de exportar abren Mis enlaces en la web. La copia de emergencia se ofrece una sola vez, en un solo cuadro. El estado Roto de una partida se recalcula al enlazar, desvincular y deshacer, y sale el punto rojo de la fila. El resaltado 3D vuelve a ser por partida. Modelos enlazados: quitar un modelo deja rastro y reenlazarlo reconecta. Arbol del presupuesto: agregar, mover y anidar capitulos y partidas sin perder nada. Cada archivo abre con su propio plan de cuentas, calendario y columnas 5D."
+                      },
+                      {
+                          "version":  "1.10.1",
+                          "fecha":  "2026-09-09",
+                          "notas":  "El vencimiento firmado es la fecha contractual exacta, sin el dia de mas que aparecia en horario de verano. El resaltado 3D y la exportacion interactiva muestran todos los elementos sumados a mano, y Corregir vinculos ya no los borra. El log de diagnostico no guarda el cuerpo de las respuestas del portal. En la web: el modulo Planificacion 5D se contrata desde la pagina, y los pagos se reconocen por plan con reintento automatico de las incidencias."
+                      },
+                      {
+                          "version":  "1.10.0",
+                          "fecha":  "2026-09-08",
+                          "notas":  "Premium mensual con vencimiento independiente de la licencia Basica, validacion firmada y avisos de suscripcion. Conserva los codigos Premium permanentes ya entregados. Mejora la gestion de recursos y protege los estados de pago frente a eventos atrasados o repetidos."
+                      },
+                      {
+                          "version":  "1.9.0",
+                          "fecha":  "2026-09-07",
+                          "notas":  "El configurador de materiales: tu mandante elige entre las alternativas que le dejaste y ve moverse el total del presupuesto en el mismo enlace, sin instalar nada, y queda registrado que eligio. El resaltado 3D reconoce Familia: Tipo, asi que las partidas vinculadas por esa celda vuelven a resaltar sus elementos. Los totales se repintan al editar una cantidad a mano y Ctrl+Z restaura lo que corresponde. Abrir un presupuesto ya no lo marca como modificado ni lo reescribe solo a los dos minutos. El agente de IA no puede inventar cantidades: toda cantidad dice de donde sale, por las dos puertas. Y los carteles de compra llevan a la pagina de planes."
+                      },
+                      {
+                          "version":  "1.8.0",
+                          "fecha":  "2026-09-04",
+                          "notas":  "Presupuesto interactivo para el mandante: un enlace que abre el presupuesto en el navegador, con el modelo 3D, sin instalar nada y revocable cuando quieras. Set de materiales con foto por material y encuadre. Modelos enlazados: cantidades desde varios .rvt a la vez. Portal de clientes en quantikaviewer.com con ingreso por contrasena y panel de enlaces y visitas. Cronograma, curvas de avance y flujo de caja del contrato. Correcciones en la vinculacion con el modelo: los criterios ya no se pegan a la columna equivocada, asi que las partidas capturan sus elementos y el resaltado 3D funciona."
+                      }
+                  ]
 }
