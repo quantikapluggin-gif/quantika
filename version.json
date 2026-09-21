@@ -1,9 +1,14 @@
 {
-  "version": "1.10.4",
-  "installerUrl": "https://quantikaviewer.com/descargar/Quantika-Setup-v1.10.4.exe",
-  "notes": "IA por MCP: lectura de celdas y totales de tablas de Revit, propuestas de enlaces y programación con revisión antes de aplicar. Mejoras en conciliación de cuentas, identificación de recursos y edición pendiente. El instalador incluye el conector MCP para Revit y la aplicación de escritorio.",
+  "version": "1.10.5",
+  "installerUrl": "https://quantikaviewer.com/descargar/Quantika-Setup-v1.10.5.exe",
+  "notes": "Asignación de cuentas más simple: elige las cuentas guardadas por código y nombre desde el recurso inline o desde la base de recursos. Conserva las asignaciones al cancelar, actualizar la lista y deshacer. Incluye las mejoras MCP y del instalador de la versión anterior.",
   "mandatory": false,
   "historial": [
+    {
+      "version": "1.10.5",
+      "fecha": "2026-09-21",
+      "notas": "Asignación de cuentas más simple: elige las cuentas guardadas por código y nombre desde el recurso inline o desde la base de recursos. Conserva las asignaciones al cancelar, actualizar la lista y deshacer. Incluye las mejoras MCP y del instalador de la versión anterior."
+    },
     {
       "version": "1.10.4",
       "fecha": "2026-09-21",
